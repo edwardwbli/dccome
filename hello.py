@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 from StringIO import StringIO
 import pyqrcode
 import re
@@ -11,12 +11,13 @@ app = Flask(__name__)
 def index():
     return render_template('webpage.html')
 
-@app.route('/convert/<str>')
-def convert(str):
+@app.route('/convert')
+def convert():
+    
+    str =  request.args.get('s')
+    
     print str
-    dstr = base64.b64decode(str)
-    print dstr
-    img = pyqrcode.create(dstr,encoding='utf8')
+    img = pyqrcode.create(str,encoding='utf8')
     buffer = StringIO()
     img.svg(buffer,scale=4)
     p = re.compile(r'<svg.*</svg>')
