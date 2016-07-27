@@ -22,8 +22,8 @@
     <script type="text/javascript">
       $(document).ready(function(){
          $("#txt_name").keyup(function(){
-            var encoded = encodeURIComponent($(this).val());
-            var base64str = btoa(encoded);
+            // var encoded = encodeURIComponent($(this).val());
+            var base64str = btoa($(this).val());
             $.get( "/convert/"+base64str, function( data ) {
                     $( "#qrcode-container" ).html( data );
            });
