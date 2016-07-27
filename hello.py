@@ -16,7 +16,7 @@ def convert():
     
     str =  request.args.get('s')
     
-    print str
+
     img = pyqrcode.create(str,encoding='utf8')
     buffer = StringIO()
     img.svg(buffer,scale=4)
