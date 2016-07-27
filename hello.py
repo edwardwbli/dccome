@@ -11,7 +11,7 @@ app = Flask(__name__)
 def index():
     return render_template('webpage.html')
 
-@app.route('/convert')
+@app.route('/convert/')
 def convert():
     
     str =  request.args.get('s')
