@@ -2,6 +2,7 @@ from flask import Flask,render_template
 from StringIO import StringIO
 import pyqrcode
 import re
+import base64
 
 app = Flask(__name__)
 
@@ -13,7 +14,8 @@ def index():
 @app.route('/convert/<str>')
 def convert(str):
     print str
-    img = pyqrcode.create(str,encoding='utf8')
+    dstr = base64.b64decode(str)
+    img = pyqrcode.create(dstr,encoding='utf8')
     buffer = StringIO()
     img.svg(buffer,scale=4)
     p = re.compile(r'<svg.*</svg>')

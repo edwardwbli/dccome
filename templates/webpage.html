@@ -23,7 +23,8 @@
       $(document).ready(function(){
          $("#txt_name").keyup(function(){
             var encoded = encodeURIComponent($(this).val());
-            $.get( "/convert/"+encoded, function( data ) {
+            var base64str = btoa(encoded);
+            $.get( "/convert/"+base64str, function( data ) {
                     $( "#qrcode-container" ).html( data );
            });
          });
