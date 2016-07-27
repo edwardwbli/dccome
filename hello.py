@@ -15,6 +15,7 @@ def index():
 def convert(str):
     print str
     dstr = base64.b64decode(str)
+    print dstr
     img = pyqrcode.create(dstr,encoding='utf8')
     buffer = StringIO()
     img.svg(buffer,scale=4)
