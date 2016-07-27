@@ -19,18 +19,7 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-         $("#txt_name").keyup(function(){
-             var encoded = encodeURIComponent($(this).val());
-            // var base64str = btoa($(this).val());
-             $.get( "/convert/?s="+encoded, function( data ) {
-                    $( "#qrcode-container" ).html( data );
-           });
-         });
 
-      });
-    </script>
 
   </head>
   <body>
@@ -48,4 +37,5 @@
     </div>
 
   </body>
-  </html>
+  <script type="text/javascript" src="{{url_for('static', filename='main.js') }}"></script>
+</html>
