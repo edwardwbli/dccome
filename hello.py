@@ -1,5 +1,5 @@
 from flask import Flask,render_template
-
+from StringIO import StringIO
 import pyqrcode
 import re
 
