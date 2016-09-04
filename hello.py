@@ -11,10 +11,10 @@ app = Flask(__name__)
 def index():
     return render_template('webpage.html')
 
-@app.route('/convert')
-def convert():
+@app.route('/convert/<str>')
+def convert(str):
     
-    str =  request.args.get('s')
+    #str =  request.args.get('s')
     
 
     img = pyqrcode.create(str,encoding='utf8')
